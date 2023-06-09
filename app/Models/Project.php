@@ -23,6 +23,14 @@ class Project extends Model
     {
         return $this->contributions()->sum('amount');
     }
+    public function updates()
+    {
+        return $this->hasMany(Update::class);
+    }
+    public function rewards()
+    {
+        return $this->hasMany(Reward::class);
+    }
 
     public function getPercentageCompleted()
     {

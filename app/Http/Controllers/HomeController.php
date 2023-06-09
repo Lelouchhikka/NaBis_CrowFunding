@@ -19,10 +19,12 @@ class HomeController extends Controller
 
     public function show(Project $project)
     {
+        $updates = $project->updates;
+        $rewards = $project->rewards;
         $totalContributions = $project->getTotalContributions();
         $percentageCompleted = $project->getPercentageCompleted();
 
-        return view('projects.show', compact('project', 'totalContributions', 'percentageCompleted'));
+        return view('projects.show', compact('updates','project', 'rewards','totalContributions', 'percentageCompleted'));
     }
 
     public function contribute(Project $project, Request $request)

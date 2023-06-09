@@ -20,9 +20,28 @@
                 </div>
                 <p class="project-contributions">Total Contributions: ${{ $totalContributions }}</p>
             </div>
+
         </div>
     </div>
-
+    <h4 class="mt-4">Rewards</h4>
+    <ul class="list-group mb-3">
+        @foreach ($rewards as $reward)
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ $reward->title }}
+                <span class="badge badge-primary badge-pill">$ {{ $reward->min_contribution }}</span>
+            </li>
+        @endforeach
+    </ul>
+    <h4 class="mt-4">Updates</h4>
+    <ul class="list-group mb-3">
+        @foreach ($updates as $update)
+            <li class="list-group-item">
+                <h5>{{ $update->title }}</h5>
+                <p>{{ $update->body }}</p>
+                <p class="text-muted">{{ $update->created_at->diffForHumans() }}</p>
+            </li>
+        @endforeach
+    </ul>
     <h4 class="mt-4">Make a Contribution</h4>
     @auth
         <!-- Форма пожертвования -->
