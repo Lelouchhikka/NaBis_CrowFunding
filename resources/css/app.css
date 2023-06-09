@@ -1,0 +1,52 @@
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+.card .card-img-top {
+    height: 200px; /* Задайте фиксированную высоту для изображений */
+    object-fit: cover; /* Растягивает изображение, чтобы оно заполнило свою область */
+}
+/* Основной фон страницы */
+body {
+    background-color: #f5f5f5;
+}
+
+/* Навбар */
+.navbar {
+    background-color: #ffffff;
+}
+
+.navbar-brand {
+    font-size: 24px;
+}
+
+.navbar-nav .nav-link {
+    font-size: 18px;
+}
+
+/* Контейнер */
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+p {
+    font-size: 18px;
+}
+
+/* Футер */
+footer {
+    padding: 30px 0;
+}
+
+.footer-heading {
+    font-size: 24px;
+}
+
+.footer-contact li {
+    font-size: 18px;
+}
