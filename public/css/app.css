@@ -11992,4 +11992,91 @@ textarea.form-control-lg {
     -o-object-fit: cover;
        object-fit: cover; /* Растягивает изображение, чтобы оно заполнило свою область */
 }
+/* Основной фон страницы */
+body {
+    background-color: #f5f5f5;
+}
+
+/* Навбар */
+.navbar {
+    background-color: #ffffff;
+}
+
+.navbar-brand {
+    font-size: 24px;
+}
+
+.navbar-nav .nav-link {
+    font-size: 18px;
+}
+
+/* Контейнер */
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+p {
+    font-size: 18px;
+}
+
+/* Футер */
+footer {
+    padding: 30px 0;
+}
+
+.footer-heading {
+    font-size: 24px;
+}
+
+.footer-contact li {
+    font-size: 18px;
+}
+
+.category-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.category-nav-item {
+    background-color: #f5f5f5;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.category-nav-item:hover {
+    background-color: #e5e5e5;
+}
+
+.jumbotron {
+    background-color: #f8f9fa;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s;
+}
+
+.card:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.progress {
+    background-color: #f5f5f5;
+}
+
 

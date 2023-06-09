@@ -3,26 +3,30 @@
 @section('title', $project->title)
 
 @section('content')
-    <div class="card">
-        <div class="card-header">
+    <div class="project-details">
+        <div class="project-header">
             <h3>{{ $project->title }}</h3>
         </div>
-        <div class="card-body">
-            <img src="{{ asset('storage/' . $project->photo) }}" alt="Project Photo" class="mb-3">
-            <p>{{ $project->description }}</p>
-            <p>Goal: ${{ $project->goal }}</p>
-            <p>Current Amount: ${{ $project->current_amount }}</p>
-            <div class="progress mb-3">
-                <div class="progress-bar bg-success" role="progressbar" style="width: {{ $percentageCompleted }}%" aria-valuenow="{{ $percentageCompleted }}" aria-valuemin="0" aria-valuemax="100">{{ $percentageCompleted }}%</div>
+        <div class="project-body">
+            <div class="project-image">
+                <img src="{{ asset('storage/' . $project->photo) }}" alt="Project Photo" class="project-photo">
             </div>
-            <p>Total Contributions: ${{ $totalContributions }}</p>
+            <div class="project-info">
+                <p class="project-description">{{ $project->description }}</p>
+                <p class="project-goal">Goal: ${{ $project->goal }}</p>
+                <p class="project-current-amount">Current Amount: ${{ $project->current_amount }}</p>
+                <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: {{ $percentageCompleted }}%" aria-valuenow="{{ $percentageCompleted }}" aria-valuemin="0" aria-valuemax="100">{{ $percentageCompleted }}%</div>
+                </div>
+                <p class="project-contributions">Total Contributions: ${{ $totalContributions }}</p>
+            </div>
         </div>
     </div>
 
     <h4 class="mt-4">Make a Contribution</h4>
     @auth
         <!-- Форма пожертвования -->
-        <form action="{{ route('donate') }}" method="POST">
+        <form action="{{ route('donate') }}" method="POST" class="contribution-form">
             @csrf
             <input type="hidden" name="project_id" value="{{ $project->id }}">
             <div class="form-group">
@@ -62,4 +66,59 @@
     @else
         <p>Please <a href="{{ route('login') }}">login</a> to contribute to this project.</p>
     @endauth
+
+    <style>
+        /* Добавьте стили Kickstarter здесь */
+
+        .project-details {
+            margin-top: 30px;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .project-header h3 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .project-body {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #b799e5;
+        }
+
+        .project-image {
+            flex: 1;
+            margin-right: 30px;
+        }
+
+        .project-photo {
+            width: 100%;
+        }
+
+        .project-info {
+            flex: 2;
+        }
+
+        .project-description {
+            margin-bottom: 10px;
+        }
+
+        .progress {
+            height: 20px;
+            margin-bottom: 10px;
+        }
+
+        .project-contributions {
+            margin-top: 20px;
+        }
+
+        .contribution-form {
+            margin-top: 30px;
+        }
+    </style>
 @endsection
