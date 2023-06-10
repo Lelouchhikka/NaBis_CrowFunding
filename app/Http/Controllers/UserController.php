@@ -8,6 +8,20 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+
+    public function index()
+    {
+        // Возвращает список всех пользователей
+        $users = User::all();
+        return view('users.index', compact('users'));
+    }
+
+    public function show($id)
+    {
+        // Возвращает информацию о конкретном пользователе по его идентификатору
+        $user = User::findOrFail($id);
+        return view('users.show', compact('user'));
+    }
     public function create()
     {
         return view('auth.register');

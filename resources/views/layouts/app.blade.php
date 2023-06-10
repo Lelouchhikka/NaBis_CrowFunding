@@ -7,7 +7,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light m-3">
     <a class="navbar-brand" href="{{ route('home') }}">NaBis</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -19,7 +20,13 @@
             </li>
             @auth
                 <li class="nav-item">
-                    <a href="{{ route('logout') }}" class="nav-link">Logout</a>
+                    <form action="{{route('logout')}}" method="post">
+                        {{csrf_field()}}
+                        <button class="nav-link">Logout</button>
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('profile') }}">Профиль</a>
                 </li>
             @else
                 <li class="nav-item">
@@ -38,9 +45,7 @@
 
     @yield('content')
 </div>
-
 <footer class="bg-dark text-light">
-    <div class="container py-4">
         <div class="row">
             <div class="col-md-6">
                 <h5>About Us</h5>
@@ -55,7 +60,6 @@
                 </ul>
             </div>
         </div>
-    </div>
 </footer>
 
 <script src="{{ asset('js/app.js') }}"></script>

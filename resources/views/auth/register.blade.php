@@ -26,7 +26,7 @@
                     <label for="password_confirmation">Confirm Password:</label>
                     <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="submit" class="btn btn-primary mt-3">Register</button>
             </form>
         </div>
     </div>

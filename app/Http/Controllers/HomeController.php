@@ -14,7 +14,7 @@ class HomeController extends Controller
         $types = Type::all();
         $projects = Project::all();
 
-        return view('projects.index', compact('types','projects'));
+        return view('pages.index', compact('types','projects'));
     }
 
     public function show(Project $project)

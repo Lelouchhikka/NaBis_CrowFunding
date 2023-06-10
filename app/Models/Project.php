@@ -13,7 +13,13 @@ class Project extends Model
         'deadline',
         'photo',
         'video',
+        'user_id'
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function contributions()
     {
         return $this->hasMany(Contribution::class);
