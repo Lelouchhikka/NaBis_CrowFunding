@@ -27,9 +27,9 @@ class RewardController extends Controller
         return view('rewards.create',compact('project'));
     }
 
-    public function store(Request $request,Project $project)
+    public function store(Request $request, Project $project)
     {
-        $request['project_id']=$project->id;
+        $request['project_id'] = $project->id;
         $validatedData = $request->validate([
             'project_id' => 'required|exists:projects,id',
             'title' => 'required',
@@ -40,8 +40,9 @@ class RewardController extends Controller
 
         Reward::create($validatedData);
 
-        return redirect()->back();
+        return redirect()->route('profile');
     }
+
 
     public function show(Reward $reward)
     {

@@ -20,6 +20,7 @@ class HomeController extends Controller
     public function show(Project $project)
     {
         $updates = $project->updates;
+        $donates=$project->contributions();
         $rewards = $project->rewards;
         $totalContributions = $project->getTotalContributions();
         $percentageCompleted = $project->getPercentageCompleted();

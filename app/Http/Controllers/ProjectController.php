@@ -98,6 +98,7 @@ class ProjectController extends Controller
     {
         // Возвращает информацию о конкретном проекте по его идентификатору
         $project = Project::findOrFail($id);
+
         return view('projects.show', compact('project'));
     }
 }

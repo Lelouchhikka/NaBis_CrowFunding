@@ -9,39 +9,42 @@
 
     <!-- Поля формы для редактирования проекта -->
 
-        <div>
+        <div class="form-group">
             <label for="title">Название:</label>
-            <input type="text" name="title" id="title" value="{{ $project->title }}">
+            <input type="text" name="title" id="title" value="{{ $project->title }}" class="form-control">
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="description">Описание:</label>
-            <textarea name="description" id="description">{{ $project->description }}</textarea>
+            <textarea name="description" id="description" class="form-control">{{ $project->description }}</textarea>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="goal">Цель:</label>
-            <input type="text" name="goal" id="goal" value="{{ $project->goal }}">
+            <input type="text" name="goal" id="goal" value="{{ $project->goal }}" class="form-control">
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="deadline">Дедлайн:</label>
             <input type="date" class="form-control" id="deadline" name="deadline" value="{{ $project->deadline ?? date('Y-m-d') }}">
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="photo">Фотография:</label>
-            <input type="file" name="photo" id="photo">
+            <input type="file" name="photo" id="photo" class="form-control-file">
+            @if ($project->photo)
+                <img src="{{ asset('storage/' . $project->photo) }}" alt="Current Photo" style="max-width: 200px;">
+            @endif
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="video">Видео:</label>
-            <input type="text" name="video" id="video" value="{{ $project->video }}">
+            <input type="text" name="video" id="video" value="{{ $project->video }}" class="form-control">
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="type_id">Тип проекта:</label>
-            <select name="type_id" id="type_id">
+            <select name="type_id" id="type_id" class="form-control">
                 @foreach ($types as $type)
                     <option value="{{ $type->id }}" {{ $project->type_id == $type->id ? 'selected' : '' }}>
                         {{ $type->name }}
@@ -50,13 +53,13 @@
             </select>
         </div>
 
-        <button type="submit">Обновить</button>
+        <button type="submit" class="btn btn-primary">Обновить</button>
     </form>
 
     <form action="{{ route('projects.destroy', $project) }}" method="POST">
         @csrf
         @method('DELETE')
 
-        <button type="submit">Удалить</button>
+        <button type="submit" class="btn btn-danger">Удалить</button>
     </form>
 @endsection

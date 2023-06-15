@@ -45,6 +45,7 @@
 
     @yield('content')
 </div>
+</div>
 <footer class="bg-dark text-light">
         <div class="row">
             <div class="col-md-6">

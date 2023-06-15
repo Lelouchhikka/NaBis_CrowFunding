@@ -28,7 +28,7 @@
         @foreach ($rewards as $reward)
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 {{ $reward->title }}
-                <span class="badge badge-primary badge-pill">$ {{ $reward->min_contribution }}</span>
+                <span class="badge badge-primary text-black">$ {{ $reward->min_contribution }}</span>
             </li>
         @endforeach
     </ul>
@@ -42,6 +42,7 @@
             </li>
         @endforeach
     </ul>
+
     <h4 class="mt-4">Make a Contribution</h4>
     @auth
         <!-- Форма пожертвования -->
