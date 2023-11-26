@@ -2,28 +2,30 @@
 
 namespace App\Providers;
 
-use Illuminate\Pagination\Paginator;
+use App\Models\Type;
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class TypesServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      *
      * @return void
      */
     public function register()
     {
-        //
+        $this->app->singleton('app.types', function () {
+            return Type::all();
+        });
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      *
      * @return void
      */
     public function boot()
     {
-        Paginator::useBootstrap();
+        //
     }
 }

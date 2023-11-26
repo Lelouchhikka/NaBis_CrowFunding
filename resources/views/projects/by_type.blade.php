@@ -3,13 +3,13 @@
 @section('title', 'Projects by Type')
 
 @section('content')
-    <h1>Projects of Type: {{ $type->name }}</h1>
+    <h1>Проекты такого типа: {{ $type->name }}</h1>
 
     @if ($projects->count() > 0)
-        <div class="card-grid">
+        <div class="d-flex ">
             @foreach($projects as $project)
-                <div class="card">
-                    <img src="{{ asset('storage/' . $project->photo) }}" class="card-img-top" alt="Изображение проекта">
+                <div class="card m-2 ">
+                    <img src="{{ asset('storage/' . $project->photo) }}" class="img-thumbnail card-img-top"  alt="Изображение проекта">
                     <div class="card-body">
                         <h5 class="card-title">{{ $project->title }}</h5>
                         <p class="card-text">{{ $project->description }}</p>

@@ -18,6 +18,8 @@ use TCG\Voyager\Voyager;
 */
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/popular-projects', 'ProjectController@loadPopularProjects')->name('popular-projects');
+
 Route::get('/profile', [App\Http\Controllers\ProjectController::class, 'userProjects'])->name('profile');
 Route::get('/profile/add_project', [App\Http\Controllers\ProjectController::class, 'create'])->name('add_project');
 Route::get('/projects/{project}', 'App\Http\Controllers\HomeController@show')->name('projects.show');

@@ -9,13 +9,26 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $types = Type::all();
         $projects = Project::all();
+        $featuredProjects = Project::take(1)->get();
+        $popularProjects = Project::orderBy('created_at', 'desc')->paginate(3);
 
-        return view('pages.index', compact('types','projects'));
+        if ($request->ajax()) {
+            return view('partials.popular_projects', compact('popularProjects'));
+        }
+
+        return view('pages.index', compact('types', 'projects', 'featuredProjects', 'popularProjects'));
     }
+
+    public function loadPopularProjects(Request $request)
+    {
+        $popularProjects = Project::orderBy('created_at', 'desc')->paginate(3);
+        return view('partials.popular_projects', compact('popularProjects'));
+    }
+
 
     public function show(Project $project)
     {

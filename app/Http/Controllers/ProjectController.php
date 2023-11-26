@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
+
     public function index()
     {
         // Возвращает список всех проектов
