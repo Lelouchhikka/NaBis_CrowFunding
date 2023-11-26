@@ -22,8 +22,8 @@
                 <input type="date" name="deadline" id="deadline" class="form-control">
             </div>
             <div class="form-group">
-                <label for="type">Type</label>
-                <select name="type" id="type" class="form-control">
+                <label for="type_id">Type</label>
+                <select name="type_id" id="type_id" class="form-control">
                     <option value="">Select Type</option>
                     @foreach($types as $type)
                         <option value="{{ $type->id }}">{{ $type->name }}</option>

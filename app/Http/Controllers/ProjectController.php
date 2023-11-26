@@ -29,11 +29,10 @@ class ProjectController extends Controller
             'description' => 'required',
             'goal' => 'required|numeric',
             'deadline' => 'required|date',
-            'type' => 'required',
+            'type_id' => 'required',
             'photo' => 'required|image|max:2048',
             'video' => 'mimes:mp4|max:20480',
         ]);
-
         // Обработка загрузки фотографии
         if ($request->hasFile('photo')) {
             $photoPath = $request->file('photo')->store('photos', 'public');

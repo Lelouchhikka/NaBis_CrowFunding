@@ -13,7 +13,8 @@ class Project extends Model
         'deadline',
         'photo',
         'video',
-        'user_id'
+        'user_id',
+        'type_id'
     ];
     public function user()
     {
